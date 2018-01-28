@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SearchResults extends Component {
     render() {
@@ -6,6 +7,11 @@ class SearchResults extends Component {
             return (
                 <div className="studio-search-results">
                     Found {this.props.results.length} result(s)
+                    <ul>
+                        {this.props.results.map((r) => {
+                            return <li><Link to={'/studios/' + r.friendlyUrl}>{r.name}</Link></li>
+                        })}
+                    </ul>
                 </div>
             );
         } else {

@@ -12,12 +12,12 @@ class AppRoot extends Component {
         return (
             <div className="app-root">
                 <Navbar />
-                <div class="app-content-wrapper">
+                <div className="app-content-wrapper">
                     <Switch>
                         <Route exact path="/" component={Home.Home} />
                         <Redirect exact from="/studios" to="/studios/search" />
                         <Route exact path="/studios/search" component={Studios.Search} />
-                        <Route exact path="/studios/:friendlyUrl" component={Studios.View} />
+                        <Route exact path="/studios/:friendlyUrl" component={Studios.ViewContainer} />
                     </Switch>
                 </div>
             </div>
