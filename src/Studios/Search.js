@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import StudioSearchApi from './Api/StudioSearchApi';
+import { StudioSearchApi } from './Api';
 
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';

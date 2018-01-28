@@ -5,6 +5,14 @@ body {
   font-size: 0.9em;
 }
 
+h1 {
+  font-size: 3.0em;
+}
+
+h2 {
+  font-size: 2.4em;
+}
+
 fieldset {
   border: 0;
   padding: 12px 20px;
