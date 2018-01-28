@@ -1,4 +1,6 @@
-.app-root > .app-content-wrapper {
-    width: 1200px;
-    margin: 0 auto;
+.app-root {
+    >.app-content-wrapper {
+        width: 1200px;
+        margin: 0 auto;
+    }
 }
