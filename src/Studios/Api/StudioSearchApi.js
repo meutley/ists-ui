@@ -33,7 +33,7 @@ const SearchResults = [
 
 class StudioSearchApi {
     static search(postalCode, distance) {
-        const d = parseInt(distance);
+        const d = parseInt(distance, 10);
         return SearchResults.filter((result) => {
             return result.distance <= d;
         });

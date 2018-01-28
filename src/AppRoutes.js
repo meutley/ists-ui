@@ -1,17 +1,12 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import * as Home from './Home';
-import * as Studios from './Studios';
+import * as App from './App';
 
 const AppRoutes = (
     <div>
         <Switch>
-            <Route exact path="/" component={Home.Home} />
-            
-            <Redirect exact from="/studios" to="/studios/search" />
-            <Route exact path="/studios/search" component={Studios.Search} />
-            <Route exact path="/studios/:id" component={Studios.View} />
+            <Route path="/" component={App.AppRoot} />
         </Switch>
     </div>
 );
