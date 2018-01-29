@@ -13,7 +13,7 @@ class Navbar extends Component {
                     <li className="nav-item"><Link to="#">My Schedule</Link></li>
                     <li className="nav-item"><Link to="#">Inbox</Link></li>
                     <li className="nav-item"><Link to="#">My Account</Link></li>
-                    <li className="nav-item"><Link to="#">Log In</Link></li>
+                    <li className="nav-item"><Link to="/users/login">Log In</Link></li>
                     <li className="nav-item"><Link to="#">Log Out</Link></li>
                 </ul>
             </nav>
