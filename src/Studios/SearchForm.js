@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import * as Forms from '../Common/Forms';
 import * as Meui from '../Meui';
 
 class SearchForm extends Component {
@@ -17,18 +18,14 @@ class SearchForm extends Component {
             <fieldset>
                 <legend>Find a Studio</legend>
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <Meui.Textbox value={this.state.postalCode} name="postalCode" placeholder="Postal Code" onChange={this.handleChange.bind(this)} />
+                    <Meui.Textbox value={this.state.postalCode} placeholder="Postal Code" onChange={Forms.HandleTextboxChange(this, 'postalCode')} />
                     <br/>
-                    <Meui.Textbox value={this.state.distance} name="distance" placeholder="Distance" onChange={this.handleChange.bind(this)} />
+                    <Meui.Textbox value={this.state.distance} placeholder="Distance" onChange={Forms.HandleTextboxChange(this, 'distance')} />
                     <br/>
                     <Meui.Button value="Search" type={Meui.ButtonType.Submit} />
                 </form>
             </fieldset>
         );
-    }
-
-    handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit(event) {

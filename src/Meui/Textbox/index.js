@@ -1,3 +1,4 @@
 export {
-    default as Textbox
+    default as Textbox,
+    TextboxType
 } from './Textbox';

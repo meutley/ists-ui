@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import * as Forms from '../Common/Forms';
 import * as Services from '../Services';
 import * as Meui from '../Meui';
 
@@ -24,18 +25,14 @@ class Login extends Component {
             <div className="login-form">
                 {failure}
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <Meui.Textbox value={this.state.email} name="email" placeholder="Email" onChange={this.handleChange.bind(this)} />
+                    <Meui.Textbox value={this.state.email} placeholder="Email" onChange={Forms.HandleTextboxChange(this, 'email')} />
                     <br/>
-                    <Meui.Textbox value={this.state.password} name="password" placeholder="Password" onChange={this.handleChange.bind(this)} />
+                    <Meui.Textbox type={Meui.TextboxType.Password} value={this.state.password} placeholder="Password" onChange={Forms.HandleTextboxChange(this, 'password')} />
                     <br/>
                     <Meui.Button value="Search" type={Meui.ButtonType.Submit} />
                 </form>
             </div>
         );
-    }
-
-    handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit(event) {

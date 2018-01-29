@@ -12,11 +12,13 @@ export class ButtonType {
     static Submit = new ButtonType('submit');
 }
 
+const DefaultButtonType = ButtonType.Button;
+
 class Button extends Component {
     render() {
         const buttonType = (this.props.type && this.props.type instanceof ButtonType)
-            ? (this.props.type || ButtonType.Button)
-            : ButtonType.Button;
+            ? this.props.type
+            : DefaultButtonType;
 
         return (
             <input type={buttonType.name}
