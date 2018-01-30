@@ -36,11 +36,12 @@ class ViewContainer extends Component {
 
     loadStudio() {
         const { match: { params } } = this.props;
-        const studio = StudioApi.getByFriendlyUrl(params.friendlyUrl);
-        this.setState({
-            didLoad: true,
-            studio: studio
-        });
+        const studio = StudioApi.getByFriendlyUrl(this, params.friendlyUrl)
+            .then((res) => {
+                if (res) {
+                    this.setState({ didLoad: true, studio: res });
+                }
+            });
     }
 }
 
