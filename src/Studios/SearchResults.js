@@ -9,7 +9,7 @@ class SearchResults extends Component {
                     Found {this.props.results.length} result(s)
                     <ul>
                         {this.props.results.map((r) => {
-                            return <li><Link to={'/studios/' + r.friendlyUrl}>{r.name}</Link></li>
+                            return <li key={r.friendlyUrl}><Link to={'/studios/' + r.friendlyUrl}>{r.name}</Link></li>
                         })}
                     </ul>
                 </div>

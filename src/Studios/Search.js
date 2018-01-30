@@ -26,8 +26,12 @@ class Search extends Component {
     }
 
     handleSearchSubmit(postalCode, distance) {
-        const results = StudioSearchApi.search(postalCode, distance);
-        this.setState({ didSearch: true, searchResults: results });
+        StudioSearchApi.search(this, postalCode, distance)
+            .then((res) => {
+                if (res && !res.validationErrorMessage) {
+                    this.setState({ didSearch: true, searchResults: res })
+                }
+            });
     }
 }
 

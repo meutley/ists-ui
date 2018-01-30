@@ -1,8 +1,8 @@
-const IstsApiUrl = 'http://localhost:5000/api/users';
-const IstsRegisterUrl = IstsApiUrl + '/register';
-const IstsAuthenticateUrl = IstsApiUrl + '/authenticate';
+import { IstsApi } from '../../Common/Api';
+const IstsRegisterUrl = IstsApi.UsersUrl + '/register';
+const IstsAuthenticateUrl = IstsApi.UsersUrl + '/authenticate';
 
-const IstsAuthTokenKey = 'ists-auth-token'
+const IstsAuthTokenKey = 'ists-auth-token';
 
 class AuthenticationService {
     static getJwtToken() {

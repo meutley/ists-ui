@@ -1,42 +1,23 @@
-const SearchResults = [
-    {
-        id: 1,
-        name: 'Local Studio',
-        friendlyUrl: 'localstudio123',
-        distance: 5.5
-    },
-    {
-        id: 2,
-        name: 'Best Studio',
-        friendlyUrl: 'beststudio',
-        distance: 18.25
-    },
-    {
-        id: 3,
-        name: 'Random Guy\'s Studio',
-        friendlyUrl: 'randomguysstudio',
-        distance: 20.0
-    },
-    {
-        id: 4,
-        name: 'Remote Studio',
-        friendlyUrl: 'remotestudio',
-        distance: 26.7
-    },
-    {
-        id: 5,
-        name: 'Farthest Studio',
-        friendlyUrl: 'fartheststudio',
-        distance: 65.0
-    },
-]
+import { IstsApi } from '../../Common/Api';
+import AuthenticatedFetch from "../../Common/Fetch/AuthenticatedFetch";
 
 class StudioSearchApi {
-    static search(postalCode, distance) {
-        const d = parseInt(distance, 10);
-        return SearchResults.filter((result) => {
-            return result.distance <= d;
-        });
+    static search(context, postalCode, distance) {
+        const requestBody = {
+            postalCodeSearchCriteria: {
+                fromPostalCode: postalCode,
+                distance: distance
+            }
+        };
+        
+        return AuthenticatedFetch.perform(context,
+            IstsApi.StudioSearchUrl, {
+                method: 'POST',
+                headers: new Headers({
+                    'content-type': 'application/json'
+                }),
+                body: JSON.stringify(requestBody)
+            });
     }
 }
 
