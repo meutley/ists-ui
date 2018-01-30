@@ -1,16 +1,12 @@
 import { IstsApi } from '../../Common/Api';
-const IstsRegisterUrl = IstsApi.UsersUrl + '/register';
-const IstsAuthenticateUrl = IstsApi.UsersUrl + '/authenticate';
-
-const IstsAuthTokenKey = 'ists-auth-token';
 
 class AuthenticationService {
     static getJwtToken() {
-        return localStorage.getItem(IstsAuthTokenKey);
+        return localStorage.getItem(IstsApi.AuthToken);
     }
 
     static persistJwtToken(token) {
-        localStorage.setItem(IstsAuthTokenKey, token);
+        localStorage.setItem(IstsApi.AuthToken, token);
     }
 
     static login(email, password) {
@@ -19,7 +15,7 @@ class AuthenticationService {
             password: password
         };
         
-        return fetch(IstsAuthenticateUrl, {
+        return fetch(IstsApi.AuthenticateUrl, {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json'

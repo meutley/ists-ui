@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { AuthenticatedComponent } from '../Common/Components';
 import { StudioSearchApi } from './Api';
