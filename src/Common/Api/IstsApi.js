@@ -3,7 +3,7 @@ const IstsApi = {
     StudiosUrl: '/studios',
     StudioSearchUrl: '/studios/search',
     UsersUrl: '/users',
-    AuthenticateUrl: '/login',
+    AuthenticateUrl: '/authenticate',
     AuthToken: 'ists-auth'
 }
 
