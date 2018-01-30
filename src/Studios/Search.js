@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
+import { AuthenticatedComponent } from '../Common/Components';
 import { StudioSearchApi } from './Api';
 
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
-class Search extends Component {
+class Search extends AuthenticatedComponent {
     constructor() {
         super();
 

@@ -20,7 +20,7 @@ class AppRoot extends Component {
                         <Route exact path="/studios/search" component={Studios.Search} />
                         <Route exact path="/studios/:friendlyUrl" component={Studios.ViewContainer} />
 
-                        <Route exact path="/users/login" component={Users.Login} />
+                        <Route exact path="/users/login" component={Users.LoginContainer} />
                     </Switch>
                 </div>
             </div>
