@@ -5,10 +5,14 @@ class AuthenticatedFetch {
         options.headers = options.headers || new Headers();
         options.headers.append('Authorization', `Bearer ${AuthenticationService.getJwtToken()}`);
         return fetch(url, options).then((res) => {
-            if (res.status === 401) {
+            if (res.status === 401 && context) {
                 context.props.history.push('/users/login');
             } else {
-                return res.json();
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return res;
+                }
             }
         });
     }

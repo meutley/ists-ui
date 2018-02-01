@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import AuthenticationService from '../Services/Authentication/AuthenticationService';
 import { StudioApi } from './Api';
 
 import View from './View';
@@ -15,7 +16,9 @@ class ViewContainer extends Component {
     }
     
     componentDidMount() {
-        this.loadStudio();
+        AuthenticationService
+            .redirectIfNotLoggedIn(this)
+            .then(() => this.loadStudio());
     }
     
     render() {
@@ -36,7 +39,7 @@ class ViewContainer extends Component {
 
     loadStudio() {
         const { match: { params } } = this.props;
-        const studio = StudioApi.getByFriendlyUrl(this, params.friendlyUrl)
+        StudioApi.getByFriendlyUrl(this, params.friendlyUrl)
             .then((res) => {
                 if (res) {
                     this.setState({ didLoad: true, studio: res });

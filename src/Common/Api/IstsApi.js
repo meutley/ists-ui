@@ -8,16 +8,25 @@ const IstsApi = {
     AuthToken: 'ists-auth'
 }
 
+const getApiUrl = (...parts) => {
+    var url = IstsApi.BaseUrl;
+    for (var x = 0; x < parts.length; x++) {
+        url += parts[x];
+    }
+
+    return url;
+}
+
 export default {
     BaseUrl: IstsApi.BaseUrl,
     
     // Studios
-    StudiosUrl: `${IstsApi.BaseUrl}${IstsApi.StudiosUrl}`,
-    StudioByFriendlyUrlUrl: `${IstsApi.BaseUrl}${IstsApi.StudioByFriendlyUrlUrl}`,
-    StudioSearchUrl: `${IstsApi.BaseUrl}${IstsApi.StudioSearchUrl}`,
+    StudiosUrl: `${getApiUrl(IstsApi.StudiosUrl)}`,
+    StudioByFriendlyUrlUrl: `${getApiUrl(IstsApi.StudioByFriendlyUrlUrl)}`,
+    StudioSearchUrl: `${getApiUrl(IstsApi.StudioSearchUrl)}`,
 
     // Users
-    UsersUrl: `${IstsApi.BaseUrl}${IstsApi.UsersUrl}`,
-    AuthenticateUrl: `${IstsApi.BaseUrl}${IstsApi.AuthenticateUserUrl}`,
+    UsersUrl: `${getApiUrl(IstsApi.UsersUrl)}`,
+    AuthenticateUrl: `${getApiUrl(IstsApi.AuthenticateUserUrl)}`,
     AuthToken: IstsApi.AuthToken
 };

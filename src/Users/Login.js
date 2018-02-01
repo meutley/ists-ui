@@ -54,7 +54,7 @@ class Login extends Component {
                 if (res.status === 401) {
                     throw new Error('Invalid email/password');
                 } else {
-                    throw new Error(res.statusText);
+                    throw new Error('An unexpected error occurred. If the problem persists, please email support.');
                 }
             })
             .then((res) => {

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import { AuthenticatedComponent } from '../Common/Components';
+import AuthenticationService from '../Services/Authentication/AuthenticationService';
 import { StudioSearchApi } from './Api';
 
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
-class Search extends AuthenticatedComponent {
+class Search extends Component {
     constructor() {
         super();
 
@@ -14,6 +14,10 @@ class Search extends AuthenticatedComponent {
             didSearch: false,
             searchResults: []
         };
+    }
+
+    componentDidMount() {
+        AuthenticationService.redirectIfNotLoggedIn(this);
     }
     
     render() {
